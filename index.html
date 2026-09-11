@@ -393,7 +393,7 @@
                 <label class="sr-only" for="from-name">Full Name</label>
                 <input id="from-name" type="text" name="from_name" placeholder="Full Name" autocomplete="name" required>
                 <label class="sr-only" for="email-id">Email Address</label>
-                <input id="email-id" type="email" name="email_id" placeholder="Email Address" autocomplete="email" required>
+                <input id="email-id" type="email" name="from_email" placeholder="Email Address" autocomplete="email" required>
             </div>
             <div class="input-box animate-on-scroll">
                 <label class="sr-only" for="mobile-number">Mobile Number</label>
@@ -404,6 +404,7 @@
             <label class="sr-only" for="message">Your Message</label>
             <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" autocomplete="off"
                 class="animate-on-scroll" required></textarea>
+            <input type="hidden" name="to_name" value="Nishanth P R">
             <button type="submit" class="btn animate-on-scroll">Send Message</button>
             <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>

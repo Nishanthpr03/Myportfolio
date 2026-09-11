@@ -16,7 +16,7 @@ Then open <http://localhost:8000>.
 
 Upload the website files to a static host with `index.html` as the entry point. No package installation or build command is required. The unrelated `bluestacks/` directory is excluded from version-control deployments by `.gitignore`.
 
-Before publishing, replace the placeholder project actions with repository URLs and confirm the EmailJS service and template IDs in `js/script.js`.
+Before publishing, replace the placeholder project actions with repository URLs and confirm the EmailJS service and template IDs in `js/script.js`. The contact template expects `to_name`, `from_name`, `from_email`, and `message` variables.
 
 ## Structure
 
