@@ -59,7 +59,7 @@ hiddenElements.forEach((el) => observer ? observer.observe(el) : el.classList.ad
 
 /* EmailJS Integration */
 if (typeof emailjs !== 'undefined') {
-    emailjs.init("aXs9CNupXPQEIC1j");
+    emailjs.init({ publicKey: "aXs9CNupXPQEIC1j" });
 }
 
 const contactForm = document.getElementById('contact-form');
@@ -92,7 +92,10 @@ if (contactForm) {
             }, (err) => {
                 submitBtn.textContent = originalBtnValue;
                 submitBtn.disabled = false;
-                status.textContent = 'Unable to send the message right now. Please email nishanthpr82@gmail.com directly.';
+                const errorMessage = err && (err.text || err.message);
+                status.textContent = errorMessage
+                    ? `Unable to send: ${errorMessage}`
+                    : 'Unable to send the message right now. Please email nishanthpr82@gmail.com directly.';
                 console.error('Contact form submission failed', err);
             });
     });
