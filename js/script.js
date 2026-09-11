@@ -83,7 +83,10 @@ if (contactForm) {
         submitBtn.disabled = true;
         status.textContent = 'Sending your message...';
 
-        emailjs.sendForm(serviceID, templateID, this)
+        const templateParams = Object.fromEntries(new FormData(contactForm).entries());
+        templateParams.reply_to = templateParams.from_email;
+
+        emailjs.send(serviceID, templateID, templateParams)
             .then(() => {
                 submitBtn.textContent = originalBtnValue;
                 submitBtn.disabled = false;
@@ -92,9 +95,9 @@ if (contactForm) {
             }, (err) => {
                 submitBtn.textContent = originalBtnValue;
                 submitBtn.disabled = false;
-                const errorMessage = err && (err.text || err.message);
+                const errorMessage = err && (err.text || err.message || JSON.stringify(err));
                 status.textContent = errorMessage
-                    ? `Unable to send: ${errorMessage}`
+                    ? `Unable to send (${err.status || 'EmailJS error'}): ${errorMessage}`
                     : 'Unable to send the message right now. Please email nishanthpr82@gmail.com directly.';
                 console.error('Contact form submission failed', err);
             });
