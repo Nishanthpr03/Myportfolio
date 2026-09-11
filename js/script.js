@@ -59,7 +59,7 @@ hiddenElements.forEach((el) => observer ? observer.observe(el) : el.classList.ad
 
 /* EmailJS Integration */
 if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: "aXs9CNupXPQEIC1j" });
+    emailjs.init({ publicKey: "aXs9CNupXPQEIC1jJ" });
 }
 
 const contactForm = document.getElementById('contact-form');
